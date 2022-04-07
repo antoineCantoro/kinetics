@@ -1,0 +1,20 @@
+{
+  "name": "kinetics",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "demo1": "parcel src/demo1.html",
+    "demo2": "parcel src/demo2.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.4.1",
+    "parcel": "^2.4.1"
+  },
+  "dependencies": {
+    "gsap": "^3.10.2"
+  }
+}

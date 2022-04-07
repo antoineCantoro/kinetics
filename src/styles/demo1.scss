@@ -1,0 +1,110 @@
+@import 'variables';
+@import 'typography';
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: $main-font;
+    background: #000;
+    color: transparent;
+
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #fff;
+
+    // font-size: 15vw;
+    // font-size: 11.111vh;
+    
+    font-size: calc(100vh / 8);
+    // line-height: 0.85;
+    letter-spacing: -0.04em;
+
+    // position: relative;
+    overflow: hidden;
+
+    width: 100%;
+    height: 100%;
+
+
+}
+
+.blink {
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-43%) translateX(-50%);
+
+    z-index: 2;
+    // background-color: #000;
+    // padding-top: 10px;
+
+    // opacity: 0;
+
+    animation: 0.45s ease-in infinite reverse both running blink;
+
+    &::before {
+        content: "";
+        width: 100%;
+        height: 70%;
+        z-index: -1;
+        background: #000;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-59%) translateX(-50%);
+    }
+
+}
+
+// @keyframes blink {
+//     0% { color: transparent; }
+//     70% { color: transparent; }
+//     71% { color: #fff; }
+//     99%   { color: #fff; }
+//     100%   { color: transparent; }
+// }
+@keyframes blink {
+    0% { color: #fff; }
+    30% { color: #fff; }
+    31% { color: transparent; }
+    100%   { color: transparent; }
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+
+    height: calc(100% - 22.222vh);
+    overflow: hidden;
+    margin-top: 11.111vh;
+
+    position:relative; 
+    z-index:0;
+}
+
+.wrapper {
+    position: absolute;
+    left: 50%;
+    top: 0%;
+    // transform: translateY(calc( 3px - 10vh )) translateX(-50%);
+    transform: translateY(-10.11vh) translateX(-50%);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    animation: 0.45s ease-in-out infinite running slideDown;
+
+    div {
+        line-height: 0.89;
+    }
+}
+
+@keyframes slideDown {
+    0% { transform: translateY(calc( 3px - 10vh )) translateX(-50%); }
+    40% { transform: translateY(calc( 3px - 10vh )) translateX(-50%); }
+    100%   { transform: translateY(calc( 3px - 0vh )) translateX(-50%); }
+}
