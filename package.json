@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "demo1": "parcel src/demo1.html",
-    "demo2": "parcel src/demo2.html"
+    "demo2": "parcel src/demo2.html",
+    "demo3": "parcel src/demo3.html",
+    "demo4": "parcel src/demo4.html",
+    "demo5": "parcel src/demo5.html",
+    "demo6": "parcel src/demo6.html"
   },
   "keywords": [],
   "author": "",

@@ -1,0 +1,101 @@
+@import 'variables';
+@import 'typography';
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: $main-font;
+    background: #000;
+    // color: transparent;
+
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #fff;
+
+    color: #fff;
+    text-transform: uppercase;
+    
+    font-size: 8vw;
+    // line-height: 0.9;
+    letter-spacing: -0.06em;
+
+    overflow: hidden;
+    text-align: center;
+
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    // transform: translateY(-30%);
+
+    width: 100%;
+    height: 100%; 
+    
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    transform-origin: "50% 50%";
+}
+
+
+.word-wrapper {
+    overflow: hidden;
+    display: block;
+
+    span {
+        display: block;
+        position: relative;
+        transform: translateY(100%);
+    }
+}
+
+.line {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    // display: block;
+
+    @for $i from 1 through 10 {
+        &:nth-child(#{$i}) {
+            // transform: translateX( $i*10% );
+        }
+    }
+
+    & > span {
+        flex-shrink: 0;
+        display: block;
+        margin: 0 1.3vw;
+
+        @for $i from 1 through 10 {
+            &:nth-child(#{$i}) {
+                transform: translateY( calc($i * 18 / 1) );
+            }
+        }
+    }
+}
+
+.line-w {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+
+    // mask-image: linear-gradient(125deg, rgba(0, 0, 0, 0) 10%, black 14%, black 86%, rgba(0, 0, 0, 0) 90%);
+    // -webkit-gradient(linear, left top, left bottom, color-stop(10%, rgba(0, 0, 0, 0)), color-stop(14%, black), color-stop(86%, black), color-stop(90%, rgba(0, 0, 0, 0)))
+
+    span {
+        flex-shrink: 0;
+        width: 100%;
+        letter-spacing: 0.05em;
+    }
+}
