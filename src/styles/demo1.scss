@@ -7,6 +7,10 @@
     padding: 0;
 }
 
+:root {
+    --bpm: 126;
+}
+
 body {
     font-family: $main-font;
     background: #000;
@@ -44,7 +48,8 @@ body {
 
     // opacity: 0;
 
-    animation: 0.45s ease-in infinite reverse both running blink;
+    // animation: 0.45s ease-in infinite reverse both running blink;
+    animation: calc(1s / var(--bpm) * 60) ease-in infinite reverse both running blink;
 
     &::before {
         content: "";
@@ -67,10 +72,16 @@ body {
 //     99%   { color: #fff; }
 //     100%   { color: transparent; }
 // }
+// @keyframes blink {
+//     0% { color: #fff; }
+//     30% { color: #fff; }
+//     31% { color: transparent; }
+//     100%   { color: transparent; }
+// }
 @keyframes blink {
     0% { color: #fff; }
-    30% { color: #fff; }
-    31% { color: transparent; }
+    49% { color: #fff; }
+    50% { color: transparent; }
     100%   { color: transparent; }
 }
 
@@ -96,7 +107,8 @@ body {
     align-items: center;
     flex-direction: column;
 
-    animation: 0.45s ease-in-out infinite running slideDown;
+    // animation: 0.45s ease-in-out infinite running slideDown;
+    animation: calc(1s / var(--bpm) * 60) ease-in-out infinite running slideDown;
 
     div {
         line-height: 0.89;
@@ -104,7 +116,7 @@ body {
 }
 
 @keyframes slideDown {
-    0% { transform: translateY(calc( 3px - 10vh )) translateX(-50%); }
-    40% { transform: translateY(calc( 3px - 10vh )) translateX(-50%); }
-    100%   { transform: translateY(calc( 3px - 0vh )) translateX(-50%); }
+    0% { transform: translateY(-10.11vh) translateX(-50%); }
+    40% { transform: translateY(-10.11vh) translateX(-50%); }
+    100%   { transform: translateY(1.11vh ) translateX(-50%); }
 }
