@@ -6,3 +6,12 @@
     font-style: normal;
     font-display: swap;
 }
+
+@font-face {
+    font-family: 'Madeon Runes';
+    src: url('../fonts/MadeonRunes-Bold.woff2') format('woff2'),
+         url('../fonts/MadeonRunes-Bold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+
+}

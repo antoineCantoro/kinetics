@@ -9,7 +9,8 @@
     "demo3": "parcel src/demo3.html",
     "demo4": "parcel src/demo4.html",
     "demo5": "parcel src/demo5.html",
-    "demo6": "parcel src/demo6.html"
+    "demo6": "parcel src/demo6.html",
+    "demo7": "parcel src/demo7.html"
   },
   "keywords": [],
   "author": "",
