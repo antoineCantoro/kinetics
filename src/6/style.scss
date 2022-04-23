@@ -1,0 +1,203 @@
+@use "sass:math";
+@import '../styles/variables.scss';
+@import '../styles/typography';
+
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: $main-font;
+    background: #000;
+    // color: transparent;
+
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #fff;
+
+    color: #fff;
+    text-transform: uppercase;
+    
+    font-size: 8vw;
+    // line-height: 0.9;
+    letter-spacing: -0.06em;
+
+    overflow: hidden;
+    text-align: center;
+
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    // transform: translateY(-30%);
+
+    width: 100%;
+    height: 100%; 
+    
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    transform-origin: "50% 50%";
+}
+
+
+.word-wrapper {
+    overflow: hidden;
+    display: block;
+
+    span {
+        display: block;
+        position: relative;
+        transform: translateY(100%);
+        
+        // pointer-events: none;
+        // cursor: default;
+
+        // &::selection {
+        //     background: #000;
+        // }
+    }
+}
+
+.line {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    
+    & > span {
+        flex-shrink: 0;
+        display: block;
+        margin: 0 1.3vw;
+
+        $length: 10;
+
+        @for $i from 1 through 10 {
+            &:nth-child(#{$i}) {
+                transform: translateY(calc( 20% * ( $i - $length / 2 ) ));
+            }
+
+        }
+    }
+}
+
+.line-w {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+
+    // mask-image: linear-gradient(125deg, rgba(0, 0, 0, 0) 10%, black 14%, black 86%, rgba(0, 0, 0, 0) 90%);
+    // -webkit-gradient(linear, left top, left bottom, color-stop(10%, rgba(0, 0, 0, 0)), color-stop(14%, black), color-stop(86%, black), color-stop(90%, rgba(0, 0, 0, 0)))
+
+    span {
+        flex-shrink: 0;
+        width: 100%;
+        letter-spacing: 0.05em;
+    }
+}
+
+
+
+:root {
+    --bpm: 126;
+}
+
+body {
+    font-family: $main-font;
+    background: #000;
+    color: transparent;
+
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #fff;
+
+    // font-size: 15vw;
+    // font-size: 11.111vh;
+    
+    font-size: calc(100vh / 8);
+    // line-height: 0.85;
+    letter-spacing: -0.04em;
+
+    // position: relative;
+    overflow: hidden;
+
+    width: 100%;
+    height: 100%;
+
+
+}
+
+.blink {
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-43%) translateX(-50%);
+
+    z-index: 2;
+    animation: calc(1s / var(--bpm) * 60) ease-in infinite reverse both running blink;
+
+    &::before {
+        content: "";
+        width: 100%;
+        height: 70%;
+        z-index: -1;
+        background: #000;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-59%) translateX(-50%);
+    }
+
+}
+
+@keyframes blink {
+    0% { color: #fff; }
+    49% { color: #fff; }
+    50% { color: transparent; }
+    100%   { color: transparent; }
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+
+    height: calc(100% - 22.222vh);
+    overflow: hidden;
+    margin-top: 11.111vh;
+
+    position:relative; 
+    z-index:0;
+}
+
+.wrapper {
+    position: absolute;
+    left: 50%;
+    top: 0%;
+    // transform: translateY(calc( 3px - 10vh )) translateX(-50%);
+    transform: translateY(-10.11vh) translateX(-50%);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    // animation: 0.45s ease-in-out infinite running slideDown;
+    animation: calc(1s / var(--bpm) * 60) ease-in-out infinite running slideDown;
+
+    div {
+        line-height: 0.89;
+    }
+}
+
+@keyframes slideDown {
+    0% { transform: translateY(-10.11vh) translateX(-50%); }
+    40% { transform: translateY(-10.11vh) translateX(-50%); }
+    100%   { transform: translateY(1.11vh ) translateX(-50%); }
+}

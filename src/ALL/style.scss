@@ -1,0 +1,19 @@
+@use './styles/demo1.scss';
+@use './styles/demo3.scss';
+@use './styles/demo9.scss';
+
+@import '../styles/variables.scss';
+@import '../styles/typography';
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    background: #000;
+}
+
+

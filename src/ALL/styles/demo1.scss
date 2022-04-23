@@ -1,0 +1,120 @@
+@import '../../styles/variables';
+@import '../../styles/typography';
+
+:root {
+    --bpm: 126;
+}
+.demo1 {
+    width: 100%;
+    height: 100vh;
+    font-family: $main-font;
+    // background: #000;
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #fff;
+    font-size: calc(100vh / 8);
+    letter-spacing: -0.04em;
+    overflow: hidden;
+
+    &-wrapper {
+        display: none;
+
+    }
+
+    &-wrapper.active {
+        display: initial;
+        
+        .blink, .wrapper {
+            animation-play-state: running;
+        }
+    }
+
+
+    .light {
+        -webkit-text-stroke-color: #000;
+        background: #fff;
+
+        .blink {
+            // color: #000 !important;
+
+            animation: calc(1s / var(--bpm) * 60) ease-in infinite reverse both paused blinkLight;
+
+            &::before {
+                background: #fff;
+            }
+        }
+
+    }
+
+
+    .blink {
+        color: #fff;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-43%) translateX(-50%);
+
+        z-index: 2;
+        animation: calc(1s / var(--bpm) * 60) ease-in infinite reverse both paused blink;
+
+        &::before {
+            content: "";
+            width: 100%;
+            height: 70%;
+            z-index: -1;
+            background: #000;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateY(-59%) translateX(-50%);
+        }
+
+    }
+
+    @keyframes blink {
+        0% { color: #fff; }
+        49% { color: #fff; }
+        50% { color: transparent; }
+        100%   { color: transparent; }
+    }
+    @keyframes blinkLight {
+        0% { color: #000 !important; }
+        49% { color: #000 !important; }
+        50% { color: transparent !important; }
+        100%   { color: transparent !important; }
+    }
+
+    .container {
+        width: 100%;
+        height: 100%;
+
+        height: calc(100% - 22.222vh);
+        overflow: hidden;
+        margin-top: 11.111vh;
+
+        position:relative; 
+        z-index:0;
+    }
+
+    .wrapper {
+        position: absolute;
+        left: 50%;
+        top: 0%;
+        transform: translateY(-10.11vh) translateX(-50%);
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        animation: calc(1s / var(--bpm) * 60) ease-in-out infinite paused slideDown;
+
+        div {
+            line-height: 0.89;
+        }
+    }
+
+    @keyframes slideDown {
+        0% { transform: translateY(-10.11vh) translateX(-50%); }
+        40% { transform: translateY(-10.11vh) translateX(-50%); }
+        100%   { transform: translateY(1.11vh ) translateX(-50%); }
+    }
+
+}
